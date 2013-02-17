@@ -7,7 +7,7 @@
 	 * at http://www.opensource.org/licenses/mit-license.php
 	 *
 	 * The latest version of the code can be found at
-	 * http://home.dataforce.org.uk/index.php?p=news&id=135
+	 * https://github.com/ShaneMcC/phpident/
 	 *
 	 * This should be run from inetd, it will take input on stdin and write to stdout.
 	 *

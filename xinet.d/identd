@@ -2,6 +2,7 @@ service ident
 {
 	disable = no
 	socket_type = stream
+	flags = ipv6
 	protocol = tcp
 	wait = no
 	user = root

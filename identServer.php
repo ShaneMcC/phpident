@@ -54,6 +54,11 @@
 
 	// Error to send when '!' is used as an ident.
 	define('HIDE_ERROR', 'UNKNOWN-ERROR');
+	
+	// Fake username to reply with if no match found (or FALSE) to give an error.
+	// This assumes that a source/dest pair of some kind is provided, we will still
+	// return an error if no input is provided.
+	define('DEFAULT_REPLY', FALSE);
 
 	openlog('simpleIdent', LOG_PID | LOG_ODELAY, LOG_DAEMON);
 
@@ -75,6 +80,8 @@
 			$bits = explode(',', $line);
 			$source = trim($bits[0]);
 			$dest = isset($bits[1]) ? trim($bits[1]) : '';
+			
+			if (DEFAULT_REPLY !== FALSE) { $result = $source . ', ' . $dest . ' : USERID : UNIX : ' . trim(DEFAULT_REPLY); }
 
 			// Check if it is valid
 			if (preg_match('/^[0-9]+$/', $source) && preg_match('/^[0-9]+$/', $dest)) {

@@ -125,7 +125,7 @@
 						}
 
 						if ($senduser == "*") {
-							$senduser = trim(user);
+							$senduser = trim($user);
 						} else if ($senduser == "?") {
 							$senduser = 'user'.rand(1000,9999);
 						}

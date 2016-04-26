@@ -87,7 +87,7 @@
 				$pid = $bits[0];
 
 				if (preg_match('/^[0-9]+$/', $pid)) {
-					$user = `ps -o ruser=SOME-REALLY-WIDE-USERNAMES-ARE-PERMITTED-HERE $pid | tail -n 1`;
+					$user = `ps -o ruser:255 $pid | tail -n 1`;
 
 					$senduser = trim($user);
 

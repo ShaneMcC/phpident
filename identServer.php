@@ -60,6 +60,7 @@
 	$result = 'ERROR : UNKNOWN-ERROR' . "\n";
 
 	$host = $_SERVER['REMOTE_HOST'];
+	if (preg_match('#::ffff:([0-9.]+)$#', $host, $m)) { $host = $m[1]; }
 
 	syslog(LOG_INFO, 'Connection from: '.$host);
 

@@ -80,8 +80,8 @@
 			$bits = explode(',', $line);
 			$source = trim($bits[0]);
 			$dest = isset($bits[1]) ? trim($bits[1]) : '';
-			
-			if (DEFAULT_REPLY !== FALSE) { $result = $source . ', ' . $dest . ' : USERID : UNIX : ' . trim(DEFAULT_REPLY); }
+
+			if (DEFAULT_REPLY !== FALSE) { $result = $source . ' , ' . $dest . ' : USERID : UNIX : ' . trim(DEFAULT_REPLY); }
 
 			// Check if it is valid
 			if (preg_match('/^[0-9]+$/', $source) && preg_match('/^[0-9]+$/', $dest)) {
@@ -139,16 +139,16 @@
 					}
 
 					if ($senduser != "!") {
-						$result = $source . ', ' . $dest . ' : USERID : UNIX : ' . trim($senduser);
+						$result = $source . ' , ' . $dest . ' : USERID : UNIX : ' . trim($senduser);
 					} else {
-						$result = $source . ', ' . $dest . ' : ERROR : ' . HIDE_ERROR;
+						$result = $source . ' , ' . $dest . ' : ERROR : ' . HIDE_ERROR;
 					}
 				}
 			}
 		}
 	}
 
-	echo $result;
+	echo $result, "\r\n";
 	syslog(LOG_INFO, 'Result: '.$result);
 	closelog();
 	exit(0);

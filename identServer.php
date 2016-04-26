@@ -81,7 +81,7 @@
 			$source = trim($bits[0]);
 			$dest = isset($bits[1]) ? trim($bits[1]) : '';
 
-			if (DEFAULT_REPLY !== FALSE) { $result = $source . ' , ' . $dest . ' : USERID : UNIX : ' . trim(DEFAULT_REPLY); }
+			if (DEFAULT_REPLY !== FALSE) { $result = $source . ', ' . $dest . ' : USERID : UNIX : ' . trim(DEFAULT_REPLY); }
 
 			// Check if it is valid
 			if (preg_match('/^[0-9]+$/', $source) && preg_match('/^[0-9]+$/', $dest)) {
@@ -94,7 +94,7 @@
 				$pid = $bits[0];
 
 				if (preg_match('/^[0-9]+$/', $pid)) {
-					$user = `ps -o ruser:255 $pid | tail -n 1`;
+					$user = `ps -o ruser:512 $pid | tail -n 1`;
 
 					$senduser = trim($user);
 
@@ -139,9 +139,9 @@
 					}
 
 					if ($senduser != "!") {
-						$result = $source . ' , ' . $dest . ' : USERID : UNIX : ' . trim($senduser);
+						$result = $source . ', ' . $dest . ' : USERID : UNIX : ' . trim($senduser);
 					} else {
-						$result = $source . ' , ' . $dest . ' : ERROR : ' . HIDE_ERROR;
+						$result = $source . ', ' . $dest . ' : ERROR : ' . HIDE_ERROR;
 					}
 				}
 			}
